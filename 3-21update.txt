@@ -1,0 +1,4 @@
+todo:
+
+cameracontroller.cs 
+	- clamp movement keys (12:18 e08)
