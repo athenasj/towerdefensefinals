@@ -30,6 +30,11 @@ public class Enemy : MonoBehaviour {
     {
         if(wavepointIndex >= Waypoints.points.Length - 1)
         {
+            PlayerStats.Lives -= 1;
+            if (PlayerStats.Lives <= 0)
+            {
+                PlayerStats.Lives = 0;
+            }
             Destroy(gameObject);
             return; //Return, so that the code below won't run anymore after destroying
         }

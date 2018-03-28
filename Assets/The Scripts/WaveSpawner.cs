@@ -23,7 +23,10 @@ public class WaveSpawner : MonoBehaviour {
         }
 
         countdown -= Time.deltaTime; //counts down
-        waveCountdownText.text = Mathf.Round(countdown).ToString(); //displays timer for each wave on a text
+
+        countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
+
+        waveCountdownText.text = string.Format("{0:00.00}",countdown); //displays timer for each wave on a text
     }
 
     IEnumerator spawnWave()     //IENumerator instead of void bcoz this is a co-routine. A coroutine works like a thread
