@@ -10,9 +10,17 @@ public class WaveSpawner : MonoBehaviour {
 
     public float timeBetweenWaves = 5.5f; //seconds between each wave
     private float countdown = 3f; //gives the player 3 second before first wave
-    public Text waveCountdownText; 
+    public Text waveCountdownText;
+    public int maxWave = 4; //for max waves
+    public static bool waveEnd;
 
-    private int waveIndex = 0; 
+    private int waveIndex = 0;
+
+    void Start()
+    {
+        waveEnd = false;
+    }
+
 
     void Update()
     {
@@ -26,19 +34,34 @@ public class WaveSpawner : MonoBehaviour {
 
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
 
-        waveCountdownText.text = string.Format("{0:00.00}",countdown); //displays timer for each wave on a text
+        if(!waveEnd)
+            waveCountdownText.text = string.Format("{0:00.00}",countdown); //displays timer for each wave on a text
+        else
+            waveCountdownText.text = string.Format("{0:00.00}", 0);
+
+
     }
 
     IEnumerator spawnWave()     //IENumerator instead of void bcoz this is a co-routine. A coroutine works like a thread
     {
-        waveIndex++;
-
-        for (int i = 0; i < waveIndex; i++)
+        if (waveIndex <= maxWave)
         {
-            spawnEnemy();
-            yield return new WaitForSeconds(0.5f); //time difference of each enemy on the same wave
+            waveIndex++;
+
+            for (int i = 0; i < waveIndex; i++)
+            {
+
+                PlayerStats.enemiesSpawned++;
+                spawnEnemy();
+                yield return new WaitForSeconds(0.5f); //time difference of each enemy on the same wave
+            }
         }
-       
+        else
+        {
+            waveEnd = true; // means the wave has ended and win should win
+            //Debug.Log("Wave has ended.");
+        }
+               
     }
 
     void spawnEnemy()

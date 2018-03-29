@@ -7,16 +7,18 @@ public class BulletDirection : MonoBehaviour {
     public float speed = 70f;
     public GameObject bulletImpact;
     public float bulletRange = 0f;
+    
+
+    void Start()
+    {
+
+    }
 
     public void Seek (Transform _target)
     {
         target = _target;
     }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -67,16 +69,28 @@ public class BulletDirection : MonoBehaviour {
             if(collider.tag == "Enemy")
             {
                 Damage(collider.transform);
+            }           
+            else if (collider.tag == "MediumEnemy")
+            {
+
+            }
+            else if (collider.tag == "HardEnemy")
+            {
+
             }
         }
-        
-
-
     }
 
     void Damage(Transform enemy)
     {
         Destroy(enemy.gameObject);
+        if (enemy.gameObject.tag == "Enemy")
+        {
+            PlayerStats.Money += 10;
+            PlayerStats.Rounds++;
+        }
+
+        //Debug.Log("Money should add");
     }
 
     /* This is for the gizmo to see the range*/
