@@ -11,6 +11,7 @@ public class PlayerStats : MonoBehaviour {
     public int startLives = 5;
 
     public static int Rounds;
+    public static int fixedLives;
     public static int enemiesSpawned;
 
     private void Start()
@@ -19,6 +20,7 @@ public class PlayerStats : MonoBehaviour {
         Lives = startLives;
         Rounds = 0;
         enemiesSpawned = 0;
+        fixedLives = startLives;
     }
     private void Update()
     {

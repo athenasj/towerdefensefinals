@@ -10,6 +10,7 @@ public class BuildManager : MonoBehaviour {
 
     public GameObject standardTurretPrefab; //copy paste for another turret
     public GameObject missileTurretPrefab;
+    public Node selectedNode;
 
     void Awake()
     {
@@ -24,9 +25,28 @@ public class BuildManager : MonoBehaviour {
 
     public bool HasMoney { get { return PlayerStats.Money >= turretToBuild.cost; } }
 
+    public Upgrade upgrade;
+
+    public void SelectNode(Node node)
+    {
+        if (selectedNode == node)
+        {
+            upgrade.Hide();
+            selectedNode = null;
+            return;
+        }
+        upgrade.ChangePos(node);
+        selectedNode = node;
+        turretToBuild = null;
+    }
+    
+
     public void SelectTurretToBuild(TurretBlueprint turret)
     {
         turretToBuild = turret;
+        selectedNode = null;
+
+        upgrade.Hide();
     }
 
     public void BuildTurretOn (Node node)

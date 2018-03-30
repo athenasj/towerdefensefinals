@@ -2240,6 +2240,11 @@ Prefab:
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 746347632}
+    - target: {fileID: 114494093138161006, guid: a385e1af9527bf14e8a0c7c98cbbb8a5,
+        type: 2}
+      propertyPath: startMoney
+      value: 280
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a385e1af9527bf14e8a0c7c98cbbb8a5, type: 2}
   m_IsPrefabParent: 0
@@ -5078,15 +5083,39 @@ Prefab:
     - target: {fileID: 224360414529263090, guid: df5fe4f83e954d648b65878e4dad9876,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 214.5
+      value: 254.85
       objectReference: {fileID: 0}
     - target: {fileID: 224360414529263090, guid: df5fe4f83e954d648b65878e4dad9876,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -26.699997
       objectReference: {fileID: 0}
     - target: {fileID: 1917182885915060, guid: df5fe4f83e954d648b65878e4dad9876, type: 2}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787132019625092, guid: df5fe4f83e954d648b65878e4dad9876, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224428333130105242, guid: df5fe4f83e954d648b65878e4dad9876,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224428333130105242, guid: df5fe4f83e954d648b65878e4dad9876,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224428333130105242, guid: df5fe4f83e954d648b65878e4dad9876,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 214.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224428333130105242, guid: df5fe4f83e954d648b65878e4dad9876,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

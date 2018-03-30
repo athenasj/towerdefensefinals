@@ -11,6 +11,8 @@ public class Node : MonoBehaviour {
     [Header("Optional")]
     public GameObject turret; //current turret
 
+    public static GameObject currentTurret;
+
     private Renderer rend;
     private Color startColor;
 
@@ -24,10 +26,39 @@ public class Node : MonoBehaviour {
         buildManager = BuildManager.instance;
     }
 
+    public void ForUpgrade(TurretBlueprint upgradeTo, Node _node)
+    {
+        RemoveTurret();
+        BuildHere(upgradeTo);
+        Debug.Log("Node, for upgrade");
+    }
+
+    public void BuildHere(TurretBlueprint upgradeTo)
+    {
+        if (PlayerStats.Money < upgradeTo.cost)
+        {
+            Debug.Log("Not enough money");
+            return;
+        }
+
+        PlayerStats.Money -= upgradeTo.cost;
+
+        GameObject turretGO = (GameObject)Instantiate(upgradeTo.prefab, GetBuildPosition(), Quaternion.identity);
+        turret = turretGO;
+
+        Debug.Log("Turret allowed. Money left: " + PlayerStats.Money);
+    }
+
     public Vector3 GetBuildPosition()
     {
         return transform.position + positionOffset;
     }
+    
+    public void RemoveTurret()
+    {
+        Destroy(turret);
+    }
+
 
     void OnMouseDown() 
     {
@@ -36,14 +67,17 @@ public class Node : MonoBehaviour {
             return;
         }
 
-        if (!buildManager.CanBuild)
-        {
-            return;
-        } 
+        
 
         if(turret != null)
         {
+            buildManager.SelectNode(this);
             Debug.Log("Can't build there! - TODO: Display on screen");
+            return;
+        }
+
+        if (!buildManager.CanBuild)
+        {
             return;
         }
 
@@ -60,12 +94,18 @@ public class Node : MonoBehaviour {
 
         if (!buildManager.CanBuild)
         {
-           return;
+            return;
         }
+
         if (buildManager.HasMoney)
         {
             rend.material.color = hoverColor;
         }else
+        {
+            rend.material.color = notEnoughColor;
+        }
+
+        if (!buildManager.CanBuild)
         {
             rend.material.color = notEnoughColor;
         }

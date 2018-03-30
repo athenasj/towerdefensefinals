@@ -105,8 +105,17 @@ public class BulletDirection : MonoBehaviour {
 
     void Damage(Transform enemy, int damagePoint)
     {
-        Enemy subt = enemy.GetComponent<Enemy>();
-        subt.LessHealth(damagePoint); //one hit for normal enemy
+        if (enemy.name.Contains("2"))
+        {
+            Enemy2 subtr = enemy.GetComponent<Enemy2>();
+            subtr.LessHealth(damagePoint); //one hit for normal enemy
+        }
+        else
+        {
+            Enemy subt = enemy.GetComponent<Enemy>();
+            subt.LessHealth(damagePoint); //one hit for normal enemy
+        }
+        
 
         //Debug.Log("Money should add");
     }

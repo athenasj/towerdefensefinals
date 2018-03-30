@@ -8,6 +8,7 @@ public class Enemy2 : MonoBehaviour
 
     private Transform target;
     private int wavepointIndex = 0;
+    public int enemyHealth = 100;
 
     void Start()
     {
@@ -24,6 +25,17 @@ public class Enemy2 : MonoBehaviour
         //A value shall be given as basis because Unity depends on math and might given inaccuracies if not
         {
             getNextWaypoint();
+        }
+    }
+
+    public void LessHealth(int subtHealth)
+    {
+        enemyHealth -= subtHealth;
+        if (enemyHealth <= 0)
+        {
+            Destroy(gameObject);
+            PlayerStats.Money += 10;
+            PlayerStats.Rounds++;
         }
     }
 

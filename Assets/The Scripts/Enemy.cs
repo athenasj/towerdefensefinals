@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour {
     private Transform target;
     private int wavepointIndex = 0;
     public int enemyHealth = 100;
+    public int enemyMoney = 15;
 
     void Start()
     {
@@ -33,7 +34,11 @@ public class Enemy : MonoBehaviour {
         if (enemyHealth <= 0)
         {
             Destroy(gameObject);
-            PlayerStats.Money += 10;
+            if (gameObject.name.Contains("Hard"))
+            {
+                PlayerStats.Money += 10; // extra coins for ending red
+            }
+            PlayerStats.Money += enemyMoney;
             PlayerStats.Rounds++;
         }
     }
