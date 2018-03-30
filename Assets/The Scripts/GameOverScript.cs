@@ -15,7 +15,7 @@ public class GameOverScript : MonoBehaviour {
 	void OnEnable () {
         if (GameManager.gameWon)
         {
-            gameStatText.text = "YOU WON!";
+            gameStatText.text = "LEVEL PASSED!";
             nextLevelButt.text = "PROCEED";
         }
         else

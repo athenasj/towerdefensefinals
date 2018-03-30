@@ -20,6 +20,10 @@ public class PlayerStats : MonoBehaviour {
         Rounds = 0;
         enemiesSpawned = 0;
     }
+    private void Update()
+    {
+        //Debug.Log("Enemies spawned:"+ enemiesSpawned);
+    }
 
 
 

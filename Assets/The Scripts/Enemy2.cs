@@ -1,17 +1,17 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy2 : MonoBehaviour
+{
 
     public float speed = 10f;
 
     private Transform target;
     private int wavepointIndex = 0;
-    public int enemyHealth = 100;
 
     void Start()
     {
-        target = Waypoints.points[0];    //On start, Enemies must hit waypoint[0]
+        target = Waypoint2.point2[0];    //On start, Enemies must hit waypoint[0] //this is changed for diffent spawnpoints
     }
 
     void Update()
@@ -20,28 +20,16 @@ public class Enemy : MonoBehaviour {
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
         //Tells that the gameObject must comply to the speed variable given. Normalized is needed bcoz Unity applies automatic physics
 
-        if(Vector3.Distance(transform.position, target.position) <= 0.2f)
+        if (Vector3.Distance(transform.position, target.position) <= 0.2f)
         //A value shall be given as basis because Unity depends on math and might given inaccuracies if not
         {
             getNextWaypoint();
         }
     }
 
-    public void LessHealth(int subtHealth)
-    {
-        enemyHealth -= subtHealth;
-        if (enemyHealth <= 0)
-        {
-            Destroy(gameObject);
-            PlayerStats.Money += 10;
-            PlayerStats.Rounds++;
-        }
-    }
-
-
     void getNextWaypoint()
     {
-        if(wavepointIndex >= Waypoints.points.Length - 1)
+        if (wavepointIndex >= Waypoint2.point2.Length - 1)
         {
             PlayerStats.Lives -= 1;
             if (PlayerStats.Lives <= 0)
@@ -52,7 +40,7 @@ public class Enemy : MonoBehaviour {
             return; //Return, so that the code below won't run anymore after destroying
         }
         wavepointIndex++;
-        target = Waypoints.points[wavepointIndex];
+        target = Waypoint2.point2[wavepointIndex];
     }
 
 }

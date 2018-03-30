@@ -53,42 +53,60 @@ public class BulletDirection : MonoBehaviour {
         }
         else
         {
-            Damage(target);
+            Debug.Log(target.gameObject.tag);
+            if (target.gameObject.name.Contains("Easy"))
+            {
+                Damage(target, 50);
+                Debug.Log("inEnemy if");
+            }
+            else if (target.gameObject.name.Contains("Medium"))
+            {
+
+            }
+            else if (target.gameObject.name.Contains("Hard"))
+            {
+
+            }
+            else if (target.gameObject.name.Contains("Fast"))
+            {
+                Damage(target, 100);
+            }
         }
 
         
         Destroy(gameObject); //for destroy bullet
     }
 
+    //this is for enemies within vicinity
     void Explode()
     {
         Collider[] hitObject = Physics.OverlapSphere(transform.position,bulletRange);
 
         foreach (Collider collider in hitObject)
         {
-            if(collider.tag == "Enemy")
+            if(collider.name.Contains("Easy"))
             {
-                Damage(collider.transform);
+                Damage(collider.transform, 50);
             }           
-            else if (collider.tag == "MediumEnemy")
+            else if (collider.name.Contains("Medium"))
             {
 
             }
-            else if (collider.tag == "HardEnemy")
+            else if (collider.name.Contains("Hard"))
             {
 
+            }
+            else if (collider.name.Contains("Fast"))
+            {
+                Damage(collider.transform, 100);
             }
         }
     }
 
-    void Damage(Transform enemy)
+    void Damage(Transform enemy, int damagePoint)
     {
-        Destroy(enemy.gameObject);
-        if (enemy.gameObject.tag == "Enemy")
-        {
-            PlayerStats.Money += 10;
-            PlayerStats.Rounds++;
-        }
+        Enemy subt = enemy.GetComponent<Enemy>();
+        subt.LessHealth(damagePoint); //one hit for normal enemy
 
         //Debug.Log("Money should add");
     }

@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour {
         else if (PlayerStats.enemiesSpawned == PlayerStats.Rounds + (initialLives - PlayerStats.Lives) && WaveSpawner.waveEnd) //to tally up all lost life and score
         {
             gameEnded = true;
-            //Debug.Log("YOU WON" + PlayerStats.enemiesSpawned + " " + PlayerStats.Rounds + PlayerStats.Lives);
+            Debug.Log("YOU WON" + PlayerStats.enemiesSpawned + " " + PlayerStats.Rounds + (initialLives - PlayerStats.Lives));
             gameWon = true;
             gameOverUI.SetActive(true);
         }

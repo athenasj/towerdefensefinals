@@ -13,12 +13,14 @@ public class WaveSpawner : MonoBehaviour {
     public Text waveCountdownText;
     public int maxWave = 4; //for max waves
     public static bool waveEnd;
+    public static int waveLeft; //waveLeft
 
     private int waveIndex = 0;
 
     void Start()
     {
         waveEnd = false;
+        waveLeft = maxWave+1;
     }
 
 
@@ -39,7 +41,7 @@ public class WaveSpawner : MonoBehaviour {
         else
             waveCountdownText.text = string.Format("{0:00.00}", 0);
 
-
+        
     }
 
     IEnumerator spawnWave()     //IENumerator instead of void bcoz this is a co-routine. A coroutine works like a thread
@@ -47,7 +49,6 @@ public class WaveSpawner : MonoBehaviour {
         if (waveIndex <= maxWave)
         {
             waveIndex++;
-
             for (int i = 0; i < waveIndex; i++)
             {
 
@@ -55,6 +56,7 @@ public class WaveSpawner : MonoBehaviour {
                 spawnEnemy();
                 yield return new WaitForSeconds(0.5f); //time difference of each enemy on the same wave
             }
+            waveLeft = maxWave - waveIndex + 1 ;//means nabawasan yung wave to come
         }
         else
         {
