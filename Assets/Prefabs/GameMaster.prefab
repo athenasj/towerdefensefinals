@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114429159539381400}
   - component: {fileID: 114944565189798146}
   - component: {fileID: 114494093138161006}
+  - component: {fileID: 114290493824537370}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -42,6 +43,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114290493824537370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015982519764182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66d464ea5917e8459f95eb675e6331b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverUI: {fileID: 0}
 --- !u!114 &114429159539381400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -56,8 +69,9 @@ MonoBehaviour:
   enemyPrefab: {fileID: 4262135723657902, guid: aebc6e21b90cf1f4abf0ba64c942b019,
     type: 2}
   spawnPoint: {fileID: 0}
-  timeBetweenWaves: 1
+  timeBetweenWaves: 2
   waveCountdownText: {fileID: 0}
+  maxWave: 3
 --- !u!114 &114494093138161006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -69,8 +83,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80299cd5843c60469e4461ca6affb27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 400
-  startLives: 20
+  startMoney: 210
+  startLives: 5
 --- !u!114 &114944565189798146
 MonoBehaviour:
   m_ObjectHideFlags: 1

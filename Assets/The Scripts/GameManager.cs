@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public static bool gameEnded;
-    public GameObject gameOverUI;
+    public GameObject gameOverUI; //level has ended indicator
     public static bool gameWon;
     int initialLives;
 
