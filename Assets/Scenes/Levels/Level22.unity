@@ -9959,7 +9959,7 @@ Prefab:
     - target: {fileID: 224360414529263090, guid: df5fe4f83e954d648b65878e4dad9876,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -26.699997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1051163786560262, guid: df5fe4f83e954d648b65878e4dad9876, type: 2}
       propertyPath: m_IsActive
@@ -10562,6 +10562,12 @@ Prefab:
       propertyPath: timeBetweenWaves
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114944565189798146, guid: a385e1af9527bf14e8a0c7c98cbbb8a5,
+        type: 2}
+      propertyPath: cheapTurretPrefab
+      value: 
+      objectReference: {fileID: 1217457543606564, guid: 86440a5fbed29e44da3d11c143f31677,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a385e1af9527bf14e8a0c7c98cbbb8a5, type: 2}
   m_IsPrefabParent: 0

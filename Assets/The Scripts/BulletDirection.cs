@@ -53,8 +53,20 @@ public class BulletDirection : MonoBehaviour {
         }
         else
         {
+
+            if (gameObject.name.Contains("Cheap"))
+            {
+                Damage(target, 30);
+                if (target.gameObject.name.Contains("Fast"))
+                {
+                    Damage(target, 25);
+                }else
+                {
+                    Damage(target, 10);
+                }
+            }
             //Debug.Log(target.gameObject.tag);
-            if (target.gameObject.name.Contains("Easy"))
+            else if (target.gameObject.name.Contains("Easy"))
             {
                 Damage(target, 50);
                 //Debug.Log("inEnemy if");

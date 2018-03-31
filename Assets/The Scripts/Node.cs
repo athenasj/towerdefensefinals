@@ -19,8 +19,11 @@ public class Node : MonoBehaviour {
 
     BuildManager buildManager;
 
+    public bool nodeUpgraded;
+
     void Start()
     {
+        nodeUpgraded = false;
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
 
@@ -34,7 +37,8 @@ public class Node : MonoBehaviour {
 
     public void ForUpgrade(TurretBlueprint upgradeTo, Node _node)
     {
-        BuildHere(upgradeTo);
+        if(!nodeUpgraded)
+            BuildHere(upgradeTo);
         //Debug.Log("Node, for upgrade");
     }
 
@@ -48,12 +52,13 @@ public class Node : MonoBehaviour {
         Debug.Log("In buildhere");
         if (PlayerStats.Money < upgradeTo.cost)
         {
-            Debug.Log("Not enough money");
+            Debug.Log("Not enough money for upgrade.");
+            rend.material.color = notEnoughColor;
             return;
         }
 
         RemoveTurret();
-
+        nodeUpgraded = true;
         PlayerStats.Money -= upgradeTo.cost;
 
         GameObject turretGO = (GameObject)Instantiate(upgradeTo.prefab, GetBuildPosition(), Quaternion.identity);
@@ -108,7 +113,12 @@ public class Node : MonoBehaviour {
 
         if(turret != null)
         {
-            if(BuildManager.upgradeAllowed)
+            if (nodeUpgraded)
+            {
+                rend.material.color = notEnoughColor;
+                return;
+            }
+            if (BuildManager.upgradeAllowed)
                 rend.material.color = upgradeNodeColor;
             else
                 rend.material.color = notEnoughColor;
@@ -133,6 +143,8 @@ public class Node : MonoBehaviour {
         {
             rend.material.color = notEnoughColor;
         }
+
+        
     }
 
     void OnMouseExit()

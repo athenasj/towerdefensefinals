@@ -8,6 +8,7 @@ public class Upgrade : MonoBehaviour {
     public GameObject UpgradeBar;
     public TurretBlueprint upgradeStandard;
     public TurretBlueprint upgradeMissile;
+    public TurretBlueprint upgradeCheap;
     BuildManager buildManager;
     bool makeObjActive;
     // Use this for initialization
@@ -25,6 +26,8 @@ public class Upgrade : MonoBehaviour {
     public void ChangePos(Node theNode)
     {
         target = theNode;
+        
+        
         //Debug.Log("Target:"+target.name);
         //Debug.Log(UpgradeBar.name);
         //Debug.Log(gameObject.name);
@@ -48,6 +51,7 @@ public class Upgrade : MonoBehaviour {
         //Debug.Log(target.name);
 
         Node forUp = target.GetComponent<Node>();
+        
         if (forUp.turret.name.Contains("Standard"))
         {
             forUp.ForUpgrade(upgradeStandard, target);
@@ -56,6 +60,11 @@ public class Upgrade : MonoBehaviour {
         {
             forUp.ForUpgrade(upgradeMissile, target);
             Debug.Log("missile upgrade");
+        }
+        else if (forUp.turret.name.Contains("Cheap"))
+        {
+            forUp.ForUpgrade(upgradeCheap, target);
+            Debug.Log("cheap upgrade");
         }
         makeObjActive = false;
 

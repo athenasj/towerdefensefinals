@@ -10,6 +10,7 @@ public class BuildManager : MonoBehaviour {
 
     public GameObject standardTurretPrefab; //copy paste for another turret
     public GameObject missileTurretPrefab;
+    public GameObject cheapTurretPrefab;
     public Node selectedNode;
     public bool upAllowed;
     public static bool upgradeAllowed = true;
@@ -35,8 +36,9 @@ public class BuildManager : MonoBehaviour {
 
     public void SelectNode(Node node)
     {
-        
-        if (upAllowed)
+        Node forUp = node.GetComponent<Node>();
+       
+        if (upAllowed && !forUp.nodeUpgraded)
         {
             Debug.Log("up allowed!");
             if (selectedNode == node)

@@ -5240,6 +5240,12 @@ Prefab:
       value: 
       objectReference: {fileID: 4262135723657902, guid: dd91ec2c5410cfc45923e97c23926eff,
         type: 2}
+    - target: {fileID: 114944565189798146, guid: a385e1af9527bf14e8a0c7c98cbbb8a5,
+        type: 2}
+      propertyPath: cheapTurretPrefab
+      value: 
+      objectReference: {fileID: 1217457543606564, guid: 86440a5fbed29e44da3d11c143f31677,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a385e1af9527bf14e8a0c7c98cbbb8a5, type: 2}
   m_IsPrefabParent: 0
