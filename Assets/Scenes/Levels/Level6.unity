@@ -7743,6 +7743,11 @@ Prefab:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 114944565189798146, guid: a385e1af9527bf14e8a0c7c98cbbb8a5,
+        type: 2}
+      propertyPath: upgrade
+      value: 
+      objectReference: {fileID: 2066839898}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a385e1af9527bf14e8a0c7c98cbbb8a5, type: 2}
   m_IsPrefabParent: 0
@@ -11722,11 +11727,17 @@ Prefab:
     - target: {fileID: 224428333130105242, guid: df5fe4f83e954d648b65878e4dad9876,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -26.699997
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df5fe4f83e954d648b65878e4dad9876, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2066839898 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114728710801744282, guid: df5fe4f83e954d648b65878e4dad9876,
+    type: 2}
+  m_PrefabInternal: {fileID: 2066839897}
+  m_Script: {fileID: 11500000, guid: a95dd251d9417444cac7760c13af5b0f, type: 3}
 --- !u!1001 &2083968692
 Prefab:
   m_ObjectHideFlags: 0

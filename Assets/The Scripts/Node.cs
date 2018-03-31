@@ -6,6 +6,7 @@ public class Node : MonoBehaviour {
 
     public Color hoverColor;
     public Color notEnoughColor;
+    public Color upgradeNodeColor;
     public Vector3 positionOffset;
 
     [Header("Optional")]
@@ -24,22 +25,34 @@ public class Node : MonoBehaviour {
         startColor = rend.material.color;
 
         buildManager = BuildManager.instance;
+
+        if(turret!= null)
+        {
+            OptionalTurret();
+        }
     }
 
     public void ForUpgrade(TurretBlueprint upgradeTo, Node _node)
     {
-        RemoveTurret();
         BuildHere(upgradeTo);
-        Debug.Log("Node, for upgrade");
+        //Debug.Log("Node, for upgrade");
+    }
+
+    void OptionalTurret()
+    {
+        Instantiate(turret, GetBuildPosition(), Quaternion.identity);
     }
 
     public void BuildHere(TurretBlueprint upgradeTo)
     {
+        Debug.Log("In buildhere");
         if (PlayerStats.Money < upgradeTo.cost)
         {
             Debug.Log("Not enough money");
             return;
         }
+
+        RemoveTurret();
 
         PlayerStats.Money -= upgradeTo.cost;
 
@@ -60,7 +73,7 @@ public class Node : MonoBehaviour {
     }
 
 
-    void OnMouseDown() 
+    void OnMouseDown() //on mouse click kung baga
     {
         if (EventSystem.current.IsPointerOverGameObject()) //if shop touches node then clicked, this will prevent putting turrets on that node accidentally
         {
@@ -89,6 +102,17 @@ public class Node : MonoBehaviour {
     {
         if (EventSystem.current.IsPointerOverGameObject())
         {
+            return;
+        }
+
+
+        if(turret != null)
+        {
+            if(BuildManager.upgradeAllowed)
+                rend.material.color = upgradeNodeColor;
+            else
+                rend.material.color = notEnoughColor;
+
             return;
         }
 

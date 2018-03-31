@@ -71,7 +71,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 0}
   timeBetweenWaves: 2
   waveCountdownText: {fileID: 0}
-  maxWave: 3
+  maxWave: 5
 --- !u!114 &114494093138161006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,3 +100,6 @@ MonoBehaviour:
     type: 2}
   missileTurretPrefab: {fileID: 1921664084273168, guid: 792c13d4fef45494e99b0bcd1777f5ad,
     type: 2}
+  selectedNode: {fileID: 0}
+  upAllowed: 0
+  upgrade: {fileID: 0}

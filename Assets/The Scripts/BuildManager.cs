@@ -11,7 +11,13 @@ public class BuildManager : MonoBehaviour {
     public GameObject standardTurretPrefab; //copy paste for another turret
     public GameObject missileTurretPrefab;
     public Node selectedNode;
+    public bool upAllowed;
+    public static bool upgradeAllowed = true;
 
+    void Update()
+    {
+        upgradeAllowed = upAllowed;
+    }
     void Awake()
     {
         if(instance != null)
@@ -29,15 +35,20 @@ public class BuildManager : MonoBehaviour {
 
     public void SelectNode(Node node)
     {
-        if (selectedNode == node)
+        
+        if (upAllowed)
         {
-            upgrade.Hide();
-            selectedNode = null;
-            return;
+            Debug.Log("up allowed!");
+            if (selectedNode == node)
+            {
+                upgrade.Hide();
+                selectedNode = null;
+                return;
+            }
+            upgrade.ChangePos(node);
+            selectedNode = node;
+            turretToBuild = null;
         }
-        upgrade.ChangePos(node);
-        selectedNode = node;
-        turretToBuild = null;
     }
     
 

@@ -1038,12 +1038,12 @@ Prefab:
     - target: {fileID: 224428333130105242, guid: df5fe4f83e954d648b65878e4dad9876,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 214.5
+      value: 180.5
       objectReference: {fileID: 0}
     - target: {fileID: 224428333130105242, guid: df5fe4f83e954d648b65878e4dad9876,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -26.699997
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df5fe4f83e954d648b65878e4dad9876, type: 2}
@@ -3782,6 +3782,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4331370534294700, guid: 8fa25943df8893242844a35f44c70b85,
     type: 2}
   m_PrefabInternal: {fileID: 477918031}
+--- !u!114 &493439097 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114728710801744282, guid: df5fe4f83e954d648b65878e4dad9876,
+    type: 2}
+  m_PrefabInternal: {fileID: 175407477}
+  m_Script: {fileID: 11500000, guid: a95dd251d9417444cac7760c13af5b0f, type: 3}
 --- !u!1001 &493710043
 Prefab:
   m_ObjectHideFlags: 0
@@ -10807,6 +10813,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114944565189798146, guid: a385e1af9527bf14e8a0c7c98cbbb8a5,
+        type: 2}
+      propertyPath: upgrade
+      value: 
+      objectReference: {fileID: 493439097}
+    - target: {fileID: 114290493824537370, guid: a385e1af9527bf14e8a0c7c98cbbb8a5,
+        type: 2}
+      propertyPath: gameOverUI
+      value: 
+      objectReference: {fileID: 1694465409}
     - target: {fileID: 114429159539381400, guid: a385e1af9527bf14e8a0c7c98cbbb8a5,
         type: 2}
       propertyPath: spawnPoint
@@ -10817,16 +10833,6 @@ Prefab:
       propertyPath: waveCountdownText
       value: 
       objectReference: {fileID: 731630384}
-    - target: {fileID: 114290493824537370, guid: a385e1af9527bf14e8a0c7c98cbbb8a5,
-        type: 2}
-      propertyPath: gameOverUI
-      value: 
-      objectReference: {fileID: 1694465409}
-    - target: {fileID: 114429159539381400, guid: a385e1af9527bf14e8a0c7c98cbbb8a5,
-        type: 2}
-      propertyPath: maxWave
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a385e1af9527bf14e8a0c7c98cbbb8a5, type: 2}
   m_IsPrefabParent: 0

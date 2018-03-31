@@ -53,11 +53,11 @@ public class BulletDirection : MonoBehaviour {
         }
         else
         {
-            Debug.Log(target.gameObject.tag);
+            //Debug.Log(target.gameObject.tag);
             if (target.gameObject.name.Contains("Easy"))
             {
                 Damage(target, 50);
-                Debug.Log("inEnemy if");
+                //Debug.Log("inEnemy if");
             }
             else if (target.gameObject.name.Contains("Medium"))
             {
@@ -65,7 +65,7 @@ public class BulletDirection : MonoBehaviour {
             }
             else if (target.gameObject.name.Contains("Hard"))
             {
-
+                Damage(target, 25);
             }
             else if (target.gameObject.name.Contains("Fast"))
             {
@@ -90,7 +90,7 @@ public class BulletDirection : MonoBehaviour {
             }           
             else if (collider.name.Contains("Medium"))
             {
-
+                Damage(collider.transform, 25);
             }
             else if (collider.name.Contains("Hard"))
             {
