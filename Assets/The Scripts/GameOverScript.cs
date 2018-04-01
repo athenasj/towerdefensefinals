@@ -56,6 +56,7 @@ public class GameOverScript : MonoBehaviour {
     {
         Debug.Log("TO MENU");
         SceneManager.LoadScene("Main Menu");
+        Destroy(GameObject.Find("Audio"));
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     /*
