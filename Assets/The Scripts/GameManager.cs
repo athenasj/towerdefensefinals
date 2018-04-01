@@ -20,6 +20,16 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Space key was pressed.");
+            gameEnded = true;
+            gameWon = true;
+            Debug.Log("GAMEOVER");
+            gameOverUI.SetActive(true);
+        }
+
+
         lifeUsed = initialLives - PlayerStats.Lives;
         //Debug.Log("initiallives" + initialLives);
         if (gameEnded)

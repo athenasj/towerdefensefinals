@@ -8,15 +8,26 @@ public class GameOverScript : MonoBehaviour {
     public Text scoreText;
     public Text gameStatText;
     public Text nextLevelButt;
+    public GameObject nextLevelObj;
 
-	
-	// Update is called once per frame
+  
+    // Update is called once per frame
     //EDIT THE DETAILS HERE I.E. SCORE ETC
-	void OnEnable () {
+    void OnEnable () {
         if (GameManager.gameWon)
         {
-            gameStatText.text = "LEVEL PASSED!";
-            nextLevelButt.text = "PROCEED";
+            if (SceneManager.GetActiveScene().name.Contains("25"))
+            {
+                gameStatText.text = "YOU WON!";
+                nextLevelObj.SetActive(false);
+            }
+            else
+            {
+                gameStatText.text = "LEVEL PASSED!";
+                nextLevelButt.text = "PROCEED";
+            }
+
+            
         }
         else
         {

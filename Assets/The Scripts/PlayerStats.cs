@@ -13,6 +13,8 @@ public class PlayerStats : MonoBehaviour {
     public static int Rounds;
     public static int fixedLives;
     public static int enemiesSpawned;
+    public int maxMoney = 1000;
+    int limitMoney;
 
     private void Start()
     {
@@ -21,10 +23,12 @@ public class PlayerStats : MonoBehaviour {
         Rounds = 0;
         enemiesSpawned = 0;
         fixedLives = startLives;
+        limitMoney = maxMoney;
     }
     private void Update()
     {
         //Debug.Log("Enemies spawned:"+ enemiesSpawned);
+        Money = Mathf.Clamp(Money, 0, limitMoney);
     }
 
 
